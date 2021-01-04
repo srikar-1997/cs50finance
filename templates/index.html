@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+index
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead>
+        <tr style="text-align: left;">
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>TOTAL</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in dic %}
+        <tr style="text-align: left;">
+            <td>{{ row }}</td>
+            <td>{{ dic[row][0] }}</td>
+            <td>{{ dic[row][2] }}</td>
+            {% if  dic[row][1] == "" %}
+                <td>{{ dic[row][1] }}</td>
+            {% else %}
+                <td>${{ dic[row][1] }}</td>
+            {% endif %}
+            <td>${{ dic[row][3] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

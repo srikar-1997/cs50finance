@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+history
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead>
+        <tr style="text-align: left;">
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Transacted</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in dic %}
+        <tr style="text-align: left;">
+            <td>{{ dic[row][0] }}</td>
+            <td>{{ dic[row][1] }}</td>
+            <td>${{ dic[row][2] }}</td>
+            <td>{{ row }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
